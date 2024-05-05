@@ -1,0 +1,28 @@
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# PyTorch
+*.pth
+*.pt
+
+# TensorFlow
+*.pb
+*.ckpt
+*.meta
+*.index
+*.data-00000-of-00001
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyw
+*.pyi
+*.pyz
+*.pyw
+*.pyi
+*.egg-info/
+dist/
+build/
