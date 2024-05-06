@@ -1,0 +1,12 @@
+frame,classes
+1,suitcase
+2,
+3,suitcase,backpack
+4,
+5,
+6,bed,backpack
+7,bed,chair
+8,mouse,bed,chair,keyboard,person,tv,laptop
+9,cup,mouse,couch,chair,keyboard,person,laptop
+10,cup,mouse,chair,keyboard,person,laptop
+11,cup,mouse,chair,keyboard,person,dining table,laptop
