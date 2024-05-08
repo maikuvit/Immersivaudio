@@ -24,19 +24,21 @@ def extract_frames(video_path, output_path, fps):
     if not os.path.exists(output_path):
         os.makedirs(output_path)
     video_name = os.path.basename(video_path)
+
     # remove the file extension
     video_name = os.path.splitext(video_name)[0]
     output_folder = os.path.join(output_path, video_name)
+    print(output_folder)
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
     print(f"Extracting frames to {output_folder}")
 
-    # Handle the fact that the directory may contain whitespaces
-    video_path = f'"{video_path}"'
-    output_folder = f'"{output_folder}"'
+#    # Handle the fact that the directory may contain whitespaces
+#    video_path = f'"{video_path}"'
+#    output_folder = f'"{output_folder}"'
 
     command = f"ffmpeg -i {video_path} -vf fps={fps} {output_folder}/%d.jpg"
-    subprocess.call(command, shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.call(command, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
 def fps_count(seconds, factor):
@@ -62,9 +64,10 @@ def frame_extraction(input_json, verbose=False):
         factor (float): The factor to use in the calculation of the frames per second.
         verbose (bool): Whether to print additional information.
     """
+    input_json = json.loads(input_json)
     video_path = input_json["video_path"]
     output_path = input_json["output_path"]
-    factor = input_json["factor"]
+    factor = (int) (input_json["factor"])
     
     if not os.path.exists(video_path):
         print(f"Video path: {video_path}")
@@ -96,3 +99,10 @@ def frame_extraction(input_json, verbose=False):
     }
 
     return output_json
+
+if "__main__" == __name__:
+    frame_extraction(" ".join(sys.argv[1:]))
+
+'''
+{"video_path" : "../videos/cat.mp4", "output_path" : "cat3", "factor" : "10"}
+'''
