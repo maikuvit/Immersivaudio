@@ -6,7 +6,7 @@ from yolo8 import get_yolo_labels
 
 # 1. Get the video
 dir_path = os.path.dirname(os.path.realpath(__file__))
-video_path = os.path.join(dir_path, "../videos/cat.mp4")
+video_path = os.path.join(dir_path, "../videos/room.mp4")
 
 # 2. Extract frames
 input_json = {
