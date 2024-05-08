@@ -15,6 +15,7 @@ input_json = {
     "factor": 10
 
 }
+input_json = json.dumps(input_json)
 extraction = frame_extraction(input_json, verbose=False)
 print(f"The extraction is:")
 print(json.dumps(extraction, indent=4))
