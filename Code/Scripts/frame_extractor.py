@@ -98,6 +98,7 @@ def frame_extraction(input_json, verbose=False):
         "video_id": os.path.basename(video_path),
     }
 
+    output_json = json.dumps(output_json)
     return output_json
 
 if "__main__" == __name__:

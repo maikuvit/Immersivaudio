@@ -1,28 +1,38 @@
 # Example of usage
 import os
 import json
+from moondream2 import frame_description
 from frame_extractor import frame_extraction
+from best_frame_selection import get_best_frame
 from yolo8 import get_yolo_labels
 
 # 1. Get the video
 dir_path = os.path.dirname(os.path.realpath(__file__))
-video_path = os.path.join(dir_path, "../videos/room.mp4")
+video_path = os.path.join(dir_path, "../videos/cat.mp4")
 
 # 2. Extract frames
 input_json = {
     "video_path": video_path,
     "output_path": os.path.join(dir_path, "output"),
     "factor": 10
-
 }
 input_json = json.dumps(input_json)
 extraction = frame_extraction(input_json, verbose=False)
-print(f"The extraction is:")
-print(json.dumps(extraction, indent=4))
+print(f"[OUTPUT] {json.dumps(extraction, indent=4)}")
 
 # 3. Get frames labels using YOLO
 labels = get_yolo_labels(extraction)
 
 print(f"Labels for the frames:")
-for l in json.loads(labels):
-    print(l)
+labels = json.loads(labels)
+for l in labels:
+    print(f"[OUTPUT] {l}")
+
+# 4. Get the best frame
+best_frame = get_best_frame(extraction)
+
+print(f"[OUTPUT] {best_frame}")
+
+# 5. Get the description of the best frame
+description = frame_description(best_frame)
+print(f"[OUTPUT] {description}")

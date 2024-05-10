@@ -72,10 +72,10 @@ def get_best_frame(input_json):
     # Trovare il medoide
     medoid_index = med_model.medoid_indices_[0]
 
-    return {
+    return json.dumps({
         "video_id" : video_id,
         "best_frame" : list(images.keys())[medoid_index],
-    }
+    })
 
 if "__main__" == __name__:
     print(get_best_frame(" ".join(sys.argv[1:])))

@@ -1,12 +1,13 @@
 from ultralytics import YOLO
 import os
 import json
-import json
+import sys
 
-model = YOLO("yolov8n.pt")  # load an official model
+model = YOLO("yolov8n.pt", verbose = False)  # load an official model
 
 def get_yolo_labels(input_json):
 
+    input_json = json.loads(input_json)
     images = os.listdir(input_json["output_path"])
     # sort images by number
     images.sort(key=lambda x: int(x.split(".")[0]))
@@ -24,8 +25,12 @@ def get_yolo_labels(input_json):
         except:
             pass
         
-        result.append({"frame": ix, "labels": list(els)})
+        result.append({"frame": ix + 1, "labels": list(els)})
 
     json_result = json.dumps(result)
 
     return json_result
+
+if "__main__" == __name__:
+    print(get_yolo_labels(" ".join(sys.argv[1:])))
+
