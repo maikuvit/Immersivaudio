@@ -60,8 +60,7 @@ def get_best_frame(input_json):
 
 
     #  initial shape 512 x 16 x 29, need to reshape everything to 1 x (512*16*29) then stack to 
-    flattened_arrays = [arr.flatten() for arr in latent.values()]
-
+    flattened_arrays = [arr.cpu().flatten() for arr in latent.values()]
 
     flattened_data = np.vstack(flattened_arrays)
 

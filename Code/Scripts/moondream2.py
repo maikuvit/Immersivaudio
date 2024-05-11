@@ -14,10 +14,10 @@ def frame_description(input_json):
     model_id = "vikhyatk/moondream2"
     revision = "2024-04-02"
 
-    #model = AutoModelForCausalLM.from_pretrained(
-    #    model_id, trust_remote_code=True, revision=revision
-    #)
-    model = "daje"
+    model = AutoModelForCausalLM.from_pretrained(
+        model_id, trust_remote_code=True, revision=revision
+    )
+    #model = "daje"
 
     tokenizer = AutoTokenizer.from_pretrained(model_id, revision=revision)
 
@@ -25,9 +25,9 @@ def frame_description(input_json):
 
     if torch.cuda.is_available():
         model.to('cuda')
-    response = "daje Roma daje " #mock because it can not be run locally 
-    # enc_image = model.encode_image(image)
-    #response = model.answer_question(enc_image, "Describe this image considering it will be used as input to a sound generation model.", tokenizer)
+    #response = "daje Roma daje " #mock because it can not be run locally 
+    enc_image = model.encode_image(image)
+    response = model.answer_question(enc_image, "Describe this image considering it will be used as input to a sound generation model.", tokenizer)
     out = json.dumps(
         {
             "video_id" : video_id,

@@ -11,7 +11,6 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 video_path = os.path.join(dir_path, "../videos/cat.mp4")
 
 def main(video_path):
-
     history = []
     # 2. Extract frames
     input_json = {
