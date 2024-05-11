@@ -5,6 +5,7 @@ from moondream2 import frame_description
 from frame_extractor import frame_extraction
 from best_frame_selection import get_best_frame
 from yolo8 import get_yolo_labels
+from audioldm2 import audo_generate
 
 # 1. Get the video
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -45,6 +46,9 @@ def main(video_path):
     print(f"[OUTPUT] {description}")
     history.append(f"Best frame description: {description}")
 
+    # 6. Generate audo from description
+    audo = audo_generate(description)
+    history.append("Audio saved!")
     return "\n".join(history)
 
 if __name__ == "__main__":

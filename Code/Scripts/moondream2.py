@@ -3,6 +3,7 @@ from PIL import Image
 import torch
 import json
 import sys
+import gc 
 
 def frame_description(input_json):
 
@@ -34,6 +35,12 @@ def frame_description(input_json):
             "frame" : best_frame,
             "description" : response})
     
+    
+    print("Unloading Moondream2 model...")
+    del model
+    gc.collect()
+    torch.cuda.empty_cache()
+
     return out
 
 
