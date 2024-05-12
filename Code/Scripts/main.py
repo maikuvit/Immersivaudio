@@ -48,8 +48,8 @@ def main(video_path):
 
     # 6. Generate audo from description
     audo = audo_generate(description)
-    history.append("Audio saved!")
-    return "\n".join(history)
+    history.append("Audio saved in path: {audo}")
+    return "\n".join(history), video_path, audo
 
 if __name__ == "__main__":
     main(video_path)

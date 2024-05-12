@@ -31,4 +31,4 @@ def audo_generate(input_json):
     audio_path = os.path.join(dir_path, "output/audio")
     scipy.io.wavfile.write(f"{audio_path}/{video_id}.wav", rate=16000, data=audio[0])
 
-    return "Audio saved successfuly"
+    return f"{audio_path}/{video_id}.wav"
