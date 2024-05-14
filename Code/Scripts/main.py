@@ -5,13 +5,13 @@ from moondream2 import frame_description
 from frame_extractor import frame_extraction
 from best_frame_selection import get_best_frame
 from yolo8 import get_yolo_labels
+from audioldm2 import audo_generate
 
 # 1. Get the video
 dir_path = os.path.dirname(os.path.realpath(__file__))
 video_path = os.path.join(dir_path, "../videos/cat.mp4")
 
 def main(video_path):
-
     history = []
     # 2. Extract frames
     input_json = {

@@ -1,0 +1,11 @@
+diffusers==0.27.2
+gradio==4.31.0
+numpy==1.26.4
+opencv_python==4.9.0.80
+Pillow==10.3.0
+scikit_learn_extra==0.3.0
+scipy==1.13.0
+torch==2.3.0+cu118
+torchvision==0.18.0+cu118
+transformers==4.40.2
+ultralytics==8.2.12

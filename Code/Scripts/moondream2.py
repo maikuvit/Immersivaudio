@@ -3,6 +3,7 @@ from PIL import Image
 import torch
 import json
 import sys
+import gc 
 
 def frame_description(input_json):
 
@@ -14,10 +15,10 @@ def frame_description(input_json):
     model_id = "vikhyatk/moondream2"
     revision = "2024-04-02"
 
-    #model = AutoModelForCausalLM.from_pretrained(
-    #    model_id, trust_remote_code=True, revision=revision
-    #)
-    model = "daje"
+    model = AutoModelForCausalLM.from_pretrained(
+        model_id, trust_remote_code=True, revision=revision
+    )
+    #model = "daje"
 
     tokenizer = AutoTokenizer.from_pretrained(model_id, revision=revision)
 
@@ -34,6 +35,12 @@ def frame_description(input_json):
             "frame" : best_frame,
             "description" : response})
     
+    
+    print("Unloading Moondream2 model...")
+    del model
+    gc.collect()
+    torch.cuda.empty_cache()
+
     return out
 
 
