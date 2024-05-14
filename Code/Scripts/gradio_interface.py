@@ -4,12 +4,11 @@ import gradio as gr
 
 from main import main
 
-
-
 demo = gr.Interface(
     fn=main,
-    inputs=["text"],
-    outputs=["text"],
+    inputs=["video"],
+    outputs=[gr.Text(label="Frames extraction."), gr.Image(label="Best frame selected."), gr.Text(label="Best frame description.")],
+    allow_flagging="never"
 )
 
 demo.launch()
