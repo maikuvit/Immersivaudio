@@ -5,8 +5,10 @@ from diffusers import DPMSolverMultistepScheduler
 import json
 import os
 
-repo_id = "cvssp/audioldm2"
+# repo_id = "cvssp/audioldm2"
 # repo_id = "cvssp/audioldm2-large"
+repo_id = "cvssp/audioldm2-music"
+
 
 def audo_generate(input_json):
     input_json = json.loads(input_json)
@@ -33,12 +35,13 @@ def audo_generate(input_json):
 
     # run the generation
     print(f"Generating with prompt: \n {prompt} ")
+    
     audio = pipe(
         prompt,
         negative_prompt=negative_prompt,
         num_waveforms_per_prompt=4,
-        audio_length_in_s=10.0,
-        num_inference_steps=100,
+        audio_length_in_s=20.0,
+        num_inference_steps=50,
         guidance_scale=3.5
     )
 
@@ -52,12 +55,13 @@ def audo_generate(input_json):
     audio_path = os.path.join(audio_path, f"{video_id}.wav")
     scipy.io.wavfile.write(audio_path, 16000, audio)
 
-    return f"Audio generate in {audio_path}" 
+    print("Audio generated in: ", audio_path)
+    return audio_path
     
 if __name__ == "__main__":
   input_json = {
-      "description": "The sound depicts the ambient noises of a quiet room. A gentle rustling of fabric can be heard as a young man with long, dark hair wearing glasses adjusts his blue jacket. The soft click of a camera shutter echoes as he takes a selfie. In the background, the faint creak of a chair and the subtle hum of a quiet space can be heard.",
-      "video_id": "/content/videos/cat.mp4" 
+      "description": "The image portrays tranquility in nature through its peaceful setting, featuring a calm canine companion amidst verdant foliage.",
+      "video_id": "/content/videos/test.mp4" 
   }
   print(audo_generate(json.dumps(input_json)))
     
