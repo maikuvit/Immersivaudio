@@ -10,17 +10,13 @@ from sklearn_extra.cluster import KMedoids
 # model loading ...
 model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet18', pretrained=True)
 if torch.cuda.is_available():
-    print("CUDA is available! Running on gpu")
     model = model.to('cuda')
 model.eval()
 
 def get_best_frame(input_json):
 
-    input_json = json.loads(input_json)
-
-    inputPath = input_json["output_path"]
-    frames_number = input_json["frame_count"]
-    video_id = input_json["video_id"]
+    inputPath = input_json["frame_extraction"]["output_path"]
+    frames_number = input_json["frame_extraction"]["frame_count"]
 
 
     # Load the images
@@ -71,14 +67,18 @@ def get_best_frame(input_json):
     # Trovare il medoide
     medoid_index = med_model.medoid_indices_[0]
 
-    return json.dumps({
-        "video_id" : video_id,
+    frame_selection = {
         "best_frame" : list(images.keys())[medoid_index],
-    })
+        "best_frame_idx" : medoid_index
+    }
+
+    input_json.update({"frame_selection": frame_selection})
+
+    return input_json
 
 if "__main__" == __name__:
     print(get_best_frame(" ".join(sys.argv[1:])))
 
 '''
-{"output_path": "Code/Scripts/cat3","frame_count": "14","video_id": "asdsad"}
+{"output_path": "Code/Scripts/cat3","frame_count": "14"}
 '''

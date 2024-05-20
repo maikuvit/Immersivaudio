@@ -9,7 +9,7 @@ repo_id = "cvssp/audioldm2"
 def audo_generate(input_json):
     input_json = json.loads(input_json)
     prompt = input_json["description"]
-    video_id = input_json["video_id"]
+    video_name  = input_json["video_input"]["video_name"]
 
     pipe = AudioLDM2Pipeline.from_pretrained(repo_id, torch_dtype=torch.float16)
     if torch.cuda.is_available():
@@ -29,6 +29,6 @@ def audo_generate(input_json):
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
     audio_path = os.path.join(dir_path, "output/audio")
-    scipy.io.wavfile.write(f"{audio_path}/{video_id}.wav", rate=16000, data=audio[0])
+    scipy.io.wavfile.write(f"{audio_path}/{video_name}.wav", rate=16000, data=audio[0])
 
-    return f"{audio_path}/{video_id}.wav"
+    return f"{audio_path}/{video_name}.wav"

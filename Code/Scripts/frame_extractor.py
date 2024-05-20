@@ -65,9 +65,11 @@ def frame_extraction(input_json, verbose=False):
         verbose (bool): Whether to print additional information.
     """
     input_json = json.loads(input_json)
+
     video_path = input_json["video_path"]
     output_path = input_json["output_path"]
     factor = (int) (input_json["factor"])
+    input_json = {"video_input" : input_json}
     
     if not os.path.exists(video_path):
         print(f"Video path: {video_path}")
@@ -92,14 +94,18 @@ def frame_extraction(input_json, verbose=False):
     if verbose:
         print("Frames extracted successfully")
 
-    output_json = {
-        "output_path": os.path.join(output_path, os.path.splitext(os.path.basename(video_path))[0]),
-        "frame_count": frames,
-        "video_id": os.path.basename(video_path),
+    input_json["video_input"]["video_duration"] = sec
+
+    frame_extraction = {
+         'frame_extraction':
+            {
+            'output_path': os.path.join(output_path, os.path.splitext(os.path.basename(video_path))[0]),
+            'frame_count': frames,
+        }
     }
 
-    output_json = json.dumps(output_json)
-    return output_json
+    input_json.update(frame_extraction)
+    return input_json
 
 if "__main__" == __name__:
     frame_extraction(" ".join(sys.argv[1:]))

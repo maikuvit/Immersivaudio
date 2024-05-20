@@ -7,14 +7,10 @@ model = YOLO("yolov8n.pt", verbose = False)  # load an official model
 
 def get_yolo_labels(input_json):
 
-    input_json = json.loads(input_json)
-    images = os.listdir(input_json["output_path"])
-    # sort images by number
-    images.sort(key=lambda x: int(x.split(".")[0]))
-
-    res = model(input_json["output_path"], conf=0.25)
+    res = model(input_json["frame_extraction"]["output_path"], conf=0.25)
 
     result = []
+    total_keywords = set()
     for ix, r in enumerate(res):
         els = set()
         # If there are no boxes, skip
@@ -22,14 +18,15 @@ def get_yolo_labels(input_json):
             # use r.boxes and not r[0].boxes to get all boxes
             for c in r.boxes.cls:
                 els.add(model.names[int(c)])
+                total_keywords.add(model.names[int(c)])
         except:
             pass
         
         result.append({"frame": ix + 1, "labels": list(els)})
 
-    json_result = json.dumps(result)
-
-    return json_result
+    json_result = {"total_keywords": list(total_keywords), "frames": result}
+    input_json.update({"object_detection": json_result})
+    return input_json
 
 if "__main__" == __name__:
     print(get_yolo_labels(" ".join(sys.argv[1:])))

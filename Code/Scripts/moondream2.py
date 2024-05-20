@@ -6,11 +6,8 @@ import sys
 import gc 
 
 def frame_description(input_json):
-
-    input_json = json.loads(input_json)
     
-    best_frame = input_json["best_frame"]
-    video_id = input_json["video_id"]
+    best_frame = input_json["frame_selection"]["best_frame"]
 
     model_id = "vikhyatk/moondream2"
     revision = "2024-04-02"
@@ -29,11 +26,8 @@ def frame_description(input_json):
     response = "What a nice dog! (this text is mocked, but dogs are always amazing) " #mock because it can not be run locally 
     # enc_image = model.encode_image(image)
     #response = model.answer_question(enc_image, "Describe this image considering it will be used as input to a sound generation model.", tokenizer)
-    out = json.dumps(
-        {
-            "video_id" : video_id,
-            "frame" : best_frame,
-            "description" : response})
+    out = {
+            "description" : response}
     
     
     print("Unloading Moondream2 model...")
@@ -41,7 +35,8 @@ def frame_description(input_json):
     gc.collect()
     torch.cuda.empty_cache()
 
-    return out
+    input_json.update({"frame_description": out})
+    return input_json
 
 
 if "__main__" == __name__:
