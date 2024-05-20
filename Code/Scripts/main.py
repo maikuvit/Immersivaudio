@@ -58,8 +58,6 @@ def main(video_path):
     # 6. Combine the outputs to generate the prompt
     prompt = recombine_prompt(description, labels)
 
-    print(prompt)
-
     return [f"extracted {prompt['frame_extraction']['frame_count']} frames.",prompt["frame_selection"]["best_frame"], prompt["prompt_combiner"]["prompt"],prompt]
 
 if __name__ == "__main__":
