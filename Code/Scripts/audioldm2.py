@@ -11,9 +11,8 @@ repo_id = "cvssp/audioldm2-music"
 
 
 def audio_generate(input_json):
-    input_json = json.loads(input_json)
-    prompt = input_json["prompt_combiner"]["prompt"]
 
+    prompt = input_json["prompt_combiner"]["prompt"]
     video_name  = input_json["video_input"]["video_name"]
 
     negative_prompt = "Low quality, average quality, bad quality, poor quality"
