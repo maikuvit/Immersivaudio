@@ -58,10 +58,17 @@ def audio_generate(input_json):
     return input_json
     
 if __name__ == "__main__":
+
   input_json = {
-      "description": "The image portrays tranquility in nature through its peaceful setting, featuring a calm canine companion amidst verdant foliage.",
-      "video_id": "/content/videos/test.mp4" 
-  }
+   "prompt_combiner":
+        {
+            "prompt": "The image portrays tranquility in nature through its peaceful setting, featuring a calm canine companion amidst verdant foliage.",
+        },
+    "video_input":
+        {
+            "video_name": "/content/videos/test.mp4"
+        }
+    }
 
   print(audio_generate(json.dumps(input_json)))
     
