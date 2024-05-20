@@ -2,6 +2,7 @@
 import hashlib
 import os
 import json
+from video_reconstructor import reconstruct_output
 from prompt_combiner import recombine_prompt
 from moondream2 import frame_description
 from frame_extractor import frame_extraction
@@ -60,11 +61,15 @@ def main(video_path):
 
     # 7. Generate audio
     audio = audio_generate(prompt)
+    
 
-    return [audio["video_input"]["video_path"],
-            audio["audio_generation"]["path"],
-            audio["prompt_combiner"]["prompt"],
-            audio
+    # 8. Reconstruct the video
+    final = reconstruct_output(audio)
+
+    return [final["video_reconstruction"]["output_path"],
+            final["audio_generation"]["path"],
+            final["prompt_combiner"]["prompt"],
+            final
             ]
 
 if __name__ == "__main__":
