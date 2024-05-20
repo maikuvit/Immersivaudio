@@ -20,4 +20,4 @@ demo = gr.Interface(
     allow_flagging="never"
 )
 
-demo.launch()
+demo.launch(share=True)
