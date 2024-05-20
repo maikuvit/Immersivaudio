@@ -12,9 +12,9 @@ demo = gr.Interface(
         gr.Video(label="Video Path Input")  # Input component
     ],
     outputs=[
-        gr.Textbox(label="Operation History", interactive=False),  # Text output
-        gr.Image(label="Processed Video", interactive=False),       # Video output+
-        gr.Text(label="Best Frame Description", interactive=False),
+        gr.Video(label="Processed Video", interactive=False),       # Video output+
+        gr.Audio(label="Generated audio", interactive=False),
+        gr.Text(label="Used prompt", interactive = False),
         gr.Text(label="Json complete output", interactive=False), 
     ],
     allow_flagging="never"

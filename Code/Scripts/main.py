@@ -7,7 +7,7 @@ from moondream2 import frame_description
 from frame_extractor import frame_extraction
 from best_frame_selection import get_best_frame
 from yolo8 import get_yolo_labels
-# from audioldm2 import audo_generate
+from audioldm2 import audio_generate
 
 # 1. Get the video
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -58,7 +58,14 @@ def main(video_path):
     # 6. Combine the outputs to generate the prompt
     prompt = recombine_prompt(description, labels)
 
-    return [f"extracted {prompt['frame_extraction']['frame_count']} frames.",prompt["frame_selection"]["best_frame"], prompt["prompt_combiner"]["prompt"],prompt]
+    # 7. Generate audio
+    audio = audio_generate(prompt)
+
+    return [audio["video_input"]["video_path"],
+            audio["audio_generation"]["path"],
+            audio["prompt_combiner"]["prompt"],
+            audio
+            ]
 
 if __name__ == "__main__":
     main(video_path)

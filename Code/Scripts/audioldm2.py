@@ -10,7 +10,7 @@ import os
 repo_id = "cvssp/audioldm2-music"
 
 
-def audo_generate(input_json):
+def audio_generate(input_json):
     input_json = json.loads(input_json)
     prompt = input_json["prompt_combiner"]["prompt"]
 
@@ -41,7 +41,6 @@ def audo_generate(input_json):
     # save the audio
     audio = audio.audios[0]
 
-
     audio_path = input_json["video_input"]["output_path"]
 
     os.makedirs(audio_path, exist_ok=True)
@@ -50,7 +49,14 @@ def audo_generate(input_json):
     scipy.io.wavfile.write(audio_path, 16000, audio)
 
     print("Audio generated in: ", audio_path)
-    return audio_path
+
+    out = {
+       "audio_generation" : {
+          "path" : audio_path
+       }
+    }
+    input_json.update(out)
+    return input_json
     
 if __name__ == "__main__":
   input_json = {
