@@ -35,6 +35,7 @@ def filehash(file):
 
 
 def main(video_path):
+    video_path = video_path.replace(" ", "_")
     token = filehash(video_path)
     # 2. Extract frames
     input_json = {
