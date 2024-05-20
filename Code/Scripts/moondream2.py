@@ -12,22 +12,23 @@ def frame_description(input_json):
     model_id = "vikhyatk/moondream2"
     revision = "2024-04-02"
 
-    #model = AutoModelForCausalLM.from_pretrained(
-    #    model_id, trust_remote_code=True, revision=revision
-    #)
-    model = "daje"
+    model = AutoModelForCausalLM.from_pretrained(
+        model_id, trust_remote_code=True, revision=revision
+    )
+    # model = "daje"
 
     tokenizer = AutoTokenizer.from_pretrained(model_id, revision=revision)
 
     image = Image.open(best_frame)
 
-    #if torch.cuda.is_available():
-    #    model.to('cuda')
-    response = "What a nice dog! (this text is mocked, but dogs are always amazing) " #mock because it can not be run locally 
-    # enc_image = model.encode_image(image)
-    #response = model.answer_question(enc_image, "Describe this image considering it will be used as input to a sound generation model.", tokenizer)
+    if torch.cuda.is_available():
+        model.to('cuda')
+    # response = "What a nice dog! (this text is mocked, but dogs are always amazing) " #mock because it can not be run locally 
+    enc_image = model.encode_image(image)
+    response = model.answer_question(enc_image, "Describe shortly this image considering it will be used as input to a sound generation model.", tokenizer)
     out = {
-            "description" : response}
+            "description" : response
+        }
     
     
     print("Unloading Moondream2 model...")
