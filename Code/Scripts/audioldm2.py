@@ -64,5 +64,5 @@ if __name__ == "__main__":
       "video_id": "/content/videos/test.mp4" 
   }
 
-  print(audo_generate(json.dumps(input_json)))
+  print(audio_generate(json.dumps(input_json)))
     
