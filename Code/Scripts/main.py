@@ -124,6 +124,7 @@ def video_pipeline(video_path):
         "video_path": video_path,
         "output_path": os.path.join(dir_path, "output", token),
         "factor": 10,
+        "file_format": video_path.split(".")[-1],
     }
 
     options = {

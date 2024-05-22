@@ -4,9 +4,16 @@ import gradio as gr
 
 from main import main
 
+# Interface title and description
+interface_title = "Immersivaudio AI Video and Image Enhancer"
+interface_description = "This interface allows you to enhance your videos and images with AI-generated audio. You can upload a video or an image and the AI will generate audio based on the content of the input. Project made by Daniele Avolio, Michele Vitale, Theo ___"
+
+
 # Define the interface components and structure them.
 video_interface = gr.Interface(
     fn=main,
+    title=interface_title,
+    description=interface_description,
     inputs=[
         gr.Video(label="Video Path Input")  # Input component
     ],
