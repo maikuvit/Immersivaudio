@@ -12,6 +12,7 @@ def reconstruct_output(input_json):
 
     # constructing the output filename 
     output_filename = input_json["video_input"]["video_name"] + "_enhanced.mp4"
+    output_filepath = os.path.join(output_path, output_filename)
 
     # Remove audio from original video with bash ffmpeg
     temp_video_path = os.path.join(output_path, "temp_video.mp4")
@@ -19,7 +20,7 @@ def reconstruct_output(input_json):
     subprocess.call(ffmpeg_remove_audio_cmd, shell=True)
 
     # Run ffmpeg on bash to join video and audio
-    ffmpeg_cmd = f"ffmpeg -i {temp_video_path} -i {audio_path} -c:v copy -c:a aac -strict experimental {output_filename}"
+    ffmpeg_cmd = f"ffmpeg -i {temp_video_path} -i {audio_path} -c:v copy -c:a aac -strict experimental {output_filepath}"
     subprocess.call(ffmpeg_cmd, shell=True)
 
     os.remove(temp_video_path)
