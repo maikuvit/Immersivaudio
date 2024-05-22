@@ -34,7 +34,8 @@
 \section{Architecture}
 
 \section{Deployment}
-The deployment of the system is done using Python 
+The deployment of the system is done using Python 3.10.12 on Google Colab \cite{Colab}. The first intention was to whole process run on a local machine, but it quickly became clear that this is not possible due to the high hardware requirements that audio generation models have. The next idea was to serve the audio generation module over an API, loading it on the machine provided at IST. This hypotesis got aswell discarded for lack of sufficient resources.
+\\The front-end has been developed using the Gradio \cite{Gradio} library, which allows the fast development of web GUIs, especially for machine learning models.
 
 \section{Implemented features}
 
@@ -44,8 +45,12 @@ The deployment of the system is done using Python
 
 
 \begin{thebibliography}{00}
-    \bibitem{test}
-    test
+    \bibitem{Colab}
+    https://colab.research.google.com/
+
+    \bibitem{Gradio}
+    https://www.gradio.app/
+
 \end{thebibliography}
 
 \end{document}

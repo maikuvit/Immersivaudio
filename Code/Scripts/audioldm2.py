@@ -10,7 +10,7 @@ import os
 repo_id = "cvssp/audioldm2-music"
 
 
-def audio_generate(input_json):
+def audio_generate(input_json, for_music=True):
 
     prompt = input_json["prompt_combiner"]["prompt"]
     video_name  = input_json["video_input"]["video_name"]
@@ -39,21 +39,25 @@ def audio_generate(input_json):
 
     # save the audio
     audio = audio.audios[0]
-
     audio_path = input_json["video_input"]["output_path"]
-
     os.makedirs(audio_path, exist_ok=True)
-    
-    audio_path = os.path.join(audio_path, f"{video_name}.wav")
+    audio_path = os.path.join(audio_path, f"{video_name}_sounds.wav" if not for_music else f"{video_name}.wav")
     scipy.io.wavfile.write(audio_path, 16000, audio)
 
     print("Audio generated in: ", audio_path)
-
-    out = {
-       "audio_generation" : {
-          "path" : audio_path
-       }
-    }
+    if for_music:
+            out = {
+            "audio_generation" : {
+                "path" : audio_path
+            }
+        }
+    else:
+            out = {
+            "audio_generation_sounds" : {
+                "path" : audio_path
+            }
+        }
+    
     input_json.update(out)
     return input_json
     
