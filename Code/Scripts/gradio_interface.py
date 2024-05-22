@@ -4,10 +4,6 @@ import gradio as gr
 
 from main import main
 
-def main(video_path):
-    print(video_path)
-
-
 # Define the interface components and structure them.
 video_interface = gr.Interface(
     fn=main,
@@ -26,11 +22,11 @@ video_interface = gr.Interface(
 image_interface = gr.Interface(
     fn=main,
     inputs=[
-        gr.Image(label="Image Input")  # Input component
+        gr.Image(label="Image Input", type="filepath")  # Input component
     ],
     outputs=[
-        gr.Image(label="Processed Video", interactive=False),       # Video output
-        gr.Text(label="Generated audio", interactive=False),
+        gr.Video(label="Processed Video", interactive=False),       # Video output
+        gr.Audio(label="Generated audio", interactive=False),
         gr.Text(label="Used prompt", interactive = False),
         gr.Text(label="Json complete output", interactive=False), 
     ],

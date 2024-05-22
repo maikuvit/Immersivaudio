@@ -5,7 +5,7 @@ def recombine_prompt(description_json, object_json):
     description_json.update(
         {
             "prompt_combiner": {
-                "prompt": "Melodic music based on "
+                "prompt": "Melodic and clear and high-quality music based on "
                 + description_json["frame_description"]["description"]
             }
         }
@@ -13,7 +13,7 @@ def recombine_prompt(description_json, object_json):
     if description_json["options"]["generate_sounds"]:
         description_json["prompt_combiner"].update(
             {
-                "sound_prompt": "Sound effects based on "
+                "sound_prompt": "High-quality and clear sound effects based on "
                 + ",".join(description_json["object_detection"]["total_keywords"])
                 + ". "
                 + description_json["frame_description"]["description"]
