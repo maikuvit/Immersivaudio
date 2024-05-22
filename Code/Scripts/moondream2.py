@@ -25,7 +25,7 @@ def frame_description(input_json):
         model.to('cuda')
     # response = "What a nice dog! (this text is mocked, but dogs are always amazing) " #mock because it can not be run locally 
     enc_image = model.encode_image(image)
-    response = model.answer_question(enc_image, "Describe shortly this image considering it will be used as input to a sound generation model.", tokenizer)
+    response = model.answer_question(enc_image, "Describe shortly the image and give it a mood that describes it.", tokenizer)
     out = {
             "description" : response
         }
