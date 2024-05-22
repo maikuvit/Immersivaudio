@@ -1,7 +1,6 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from PIL import Image
 import torch
-import json
 import sys
 import gc 
 

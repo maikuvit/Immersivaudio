@@ -8,6 +8,7 @@ def recombine_prompt(description_json, object_json, for_music=True):
                 "prompt_combiner": {
                     "prompt": "Melodic music based on "
                     + description_json["frame_description"]["description"] 
+                    + ",".join(description_json["object_detection"]["total_keywords"])
                 }
             }
         )
