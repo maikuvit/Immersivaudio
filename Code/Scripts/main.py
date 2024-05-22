@@ -35,6 +35,7 @@ def filehash(file):
 
 
 def main(video_path):
+    os.rename(video_path,video_path.replace(" ", "_"))
     video_path = video_path.replace(" ", "_")
     token = filehash(video_path)
     # 2. Extract frames
@@ -45,7 +46,17 @@ def main(video_path):
         "output_path": os.path.join(dir_path, "output", token),
         "factor": 10
     }
-    input_json = json.dumps(input_json)
+
+    options = {
+        "file_format": "mp4",
+        "keep_audio": True,
+        "original_volume" : 80
+    }
+
+    input_json = {"video_input" : input_json}
+
+    input_json.update({"options" : options})
+
     extraction = frame_extraction(input_json, verbose=False)
 
     # 3. Get frames labels using YOLO
