@@ -5,8 +5,8 @@ from diffusers import DPMSolverMultistepScheduler
 import json
 import os
 
-repo_id = "cvssp/audioldm2"
-# repo_id = "cvssp/audioldm2-large"
+# repo_id = "cvssp/audioldm2"
+repo_id = "cvssp/audioldm2-large"
 # repo_id = "cvssp/audioldm2-music"
 
 
