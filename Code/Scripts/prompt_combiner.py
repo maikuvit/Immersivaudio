@@ -1,8 +1,8 @@
-def recombine_prompt(description_json, object_json, music=True):
+def recombine_prompt(description_json, object_json, for_music=True):
 
     description_json.update(object_json)
 
-    if music:
+    if for_music:
         description_json.update(
             {
                 "prompt_combiner": {

@@ -50,9 +50,10 @@ def main(video_path):
     options = {
         "file_format": "mp4",
         "keep_audio": True,
-        "original_volume" : 80
+        "original_volume" : 80,
+        "generate_sounds": True
     }
-
+    
     input_json = {"video_input" : input_json}
 
     input_json.update({"options" : options})
@@ -73,7 +74,11 @@ def main(video_path):
 
     # 7. Generate audio
     audio = audio_generate(prompt)
-    
+
+    # 8. reconstruct sounds
+    if input_json["options"]["generate_sounds"]:
+        sounds_prompt = recombine_prompt(description, labels, for_music=False)
+        audio_sounds = audio_generate(sounds_prompt, for_music=False)
 
     # 8. Reconstruct the video
     final = reconstruct_output(audio)
