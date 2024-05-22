@@ -64,8 +64,6 @@ def frame_extraction(input_json, verbose=False):
         factor (float): The factor to use in the calculation of the frames per second.
         verbose (bool): Whether to print additional information.
     """
-    input_json = json.loads(input_json)
-
     video_path = input_json["video_input"]["video_path"]
     output_path = input_json["video_input"]["output_path"]
     factor = (int) (input_json["video_input"]["factor"])
