@@ -32,7 +32,7 @@ def reconstruct_output(input_json):
     if input_json['options']['generate_sounds']:
         # use sound_path to add sounds to the previous output
         temp_output_path = os.path.join(os.path.dirname(output_path), "temp_output.mp4")
-        ffmpeg_add_audio_cmd = f"ffmpeg -y -i {output_path} -i {sound_path} -filter_complex '[0:a]volume=0.7[a];[1:a]volume=1.0[b];[a][b]amix=inputs=2:duration=first:dropout_transition=1' {temp_output_path}"
+        ffmpeg_add_audio_cmd = f"ffmpeg -y -i {output_path} -i {sound_path} -filter_complex '[0:a]volume=0.95[a];[1:a]volume=1.0[b];[a][b]amix=inputs=2:duration=first:dropout_transition=1' {temp_output_path}"
         subprocess.call(ffmpeg_add_audio_cmd, shell=True)
         os.remove(output_path)
         os.rename(temp_output_path, output_path)
