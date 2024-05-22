@@ -66,10 +66,10 @@ def frame_extraction(input_json, verbose=False):
     """
     input_json = json.loads(input_json)
 
-    video_path = input_json["video_path"]
-    output_path = input_json["output_path"]
-    factor = (int) (input_json["factor"])
-    input_json = {"video_input" : input_json}
+    video_path = input_json["video_input"]["video_path"]
+    output_path = input_json["video_input"]["output_path"]
+    factor = (int) (input_json["video_input"]["factor"])
+    # input_json = {"video_input" : input_json}
     
     if not os.path.exists(video_path):
         print(f"Video path: {video_path}")
