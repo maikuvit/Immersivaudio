@@ -23,7 +23,8 @@ def reconstruct_output(input_json):
     temp_video_path = os.path.join(os.path.dirname(output_path), "temp_video.mp4")
     # If the video is an image
     if input_json["video_input"]["file_format"] in image_formats:
-        ffmpeg_cmd = f"ffmpeg -loop 1 -i {video_path} -c:v libx264 -t 10 -pix_fmt yuv420p {temp_video_path}"
+        length = input_json["video_input"]["video_duration"]
+        ffmpeg_cmd = f"ffmpeg -loop 1 -i {video_path} -c:v libx264 -t {length} -pix_fmt yuv420p {temp_video_path}"
         subprocess.call(ffmpeg_cmd, shell=True)
     else:
         ffmpeg_remove_audio_cmd = f"ffmpeg -i {video_path} -c copy -an {temp_video_path}"
@@ -40,9 +41,9 @@ def reconstruct_output(input_json):
         # use sound_path to add sounds to the previous output
         temp_output_path = os.path.join(os.path.dirname(output_path), "temp_output.mp4")
         if input_json["video_input"]["file_format"] in image_formats:
-            ffmpeg_add_audio_cmd = f"ffmpeg -y -i {output_path} -i {sound_path} -filter_complex '[0:a]volume=0.95[a];[1:a]volume=1.0[b];[a][b]amix=inputs=2:duration=first:dropout_transition=1' {temp_output_path}"
+            ffmpeg_add_audio_cmd = f"ffmpeg -y -i {output_path} -i {sound_path} -filter_complex '[0:a]volume=1.0[a];[1:a]volume=0.75[b];[a][b]amix=inputs=2:duration=first:dropout_transition=1' {temp_output_path}"
         else:
-            ffmpeg_add_audio_cmd = f"ffmpeg -y -i {output_path} -i {sound_path} -filter_complex '[0:a]volume=0.95[a];[1:a]volume=1.0[b];[a][b]amix=inputs=2:duration=first:dropout_transition=1' {temp_output_path}"
+            ffmpeg_add_audio_cmd = f"ffmpeg -y -i {output_path} -i {sound_path} -filter_complex '[0:a]volume=1.0[a];[1:a]volume=0.75[b];[a][b]amix=inputs=2:duration=first:dropout_transition=1' {temp_output_path}"
         subprocess.call(ffmpeg_add_audio_cmd, shell=True)
         os.remove(output_path)
         os.rename(temp_output_path, output_path)

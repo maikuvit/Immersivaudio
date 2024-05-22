@@ -22,7 +22,8 @@ video_interface = gr.Interface(
 image_interface = gr.Interface(
     fn=main,
     inputs=[
-        gr.Image(label="Image Input", type="filepath")  # Input component
+        gr.Image(label="Image Input", type="filepath"),  # Input component
+        gr.Slider(label="Duration", minimum=1, maximum=120, step=1)
     ],
     outputs=[
         gr.Video(label="Processed Video", interactive=False),       # Video output

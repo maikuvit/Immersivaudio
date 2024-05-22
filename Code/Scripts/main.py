@@ -34,9 +34,9 @@ def filehash(file):
     return md5.hexdigest()
 
 
-def main(video_path):
+def main(video_path, seconds=10):
     if video_path.split(".")[-1] in image_formats:
-        return image_pipeline(video_path)
+        return image_pipeline(video_path, seconds)
     else:
         return video_pipeline(video_path)
 
