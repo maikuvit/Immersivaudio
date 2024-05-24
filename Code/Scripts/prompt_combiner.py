@@ -7,7 +7,7 @@ def recombine_prompt(description_json, object_json):
             "prompt_combiner": {
                 "prompt": "Melodic, clear and high-quality music based on "
                 + description_json["frame_description"]["description"]
-                # + ",".join(description_json["object_detection"]["total_keywords"])
+                + "Mood of " + ",".join(description_json["object_detection"]["total_keywords"])
 
             }
         }
@@ -17,8 +17,8 @@ def recombine_prompt(description_json, object_json):
             {
                 "sound_prompt": "High-quality and clear sound effects based on "
                 + description_json["frame_description"]["description"]
-                # + " Background sounds of: " 
-                + " Sound of " + ", sound of ".join(description_json["object_detection"]["total_keywords"])
+                + " Background sounds of: " 
+                + ",".join(description_json["object_detection"]["total_keywords"])
                 # + " with the following keywords: "
             }
         )

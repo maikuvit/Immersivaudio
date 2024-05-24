@@ -15,13 +15,6 @@ def audio_generate(input_json):
     prompt = input_json["prompt_combiner"]["prompt"]
     video_name = input_json["video_input"]["video_name"]
 
-    if torch.cuda.is_available():
-        device = "cuda"
-        torch_dtype = torch.float16
-    
-    generator = torch.Generator(device)
-
-
     negative_prompt = "Low quality, average quality, bad quality, poor quality"
 
     pipe = AudioLDM2Pipeline.from_pretrained(repo_id, torch_dtype=torch.float16)
@@ -42,7 +35,6 @@ def audio_generate(input_json):
         audio_length_in_s=int(input_json["video_input"]["video_duration"]),
         num_inference_steps=50,
         guidance_scale=3.5,
-        generator=generator.manual_seed(42),
     )
 
     # save the audio
