@@ -34,14 +34,14 @@ def filehash(file):
     return md5.hexdigest()
 
 
-def main(video_path, seconds=10):
+def main(video_path, generate_sounds:bool, seconds=10):
     if video_path.split(".")[-1] in image_formats:
-        return image_pipeline(video_path, seconds)
+        return image_pipeline(video_path, generate_sounds, seconds)
     else:
-        return video_pipeline(video_path)
+        return video_pipeline(video_path, generate_sounds)
 
 
-def image_pipeline(image_path, seconds=10):
+def image_pipeline(image_path, generate_sounds:bool, seconds=5):
     os.rename(image_path, image_path.replace(" ", "_"))
     image_path = image_path.replace(" ", "_")
     token = filehash(image_path)
@@ -55,7 +55,7 @@ def image_pipeline(image_path, seconds=10):
         "file_format": image_path.split(".")[-1],
     }
 
-    options = {"generate_sounds": True}
+    options = {"generate_sounds": generate_sounds}
 
     input_json = {"video_input": input_json}
     input_json.update({"options": options})
@@ -111,7 +111,7 @@ def image_pipeline(image_path, seconds=10):
     ]
 
 
-def video_pipeline(video_path):
+def video_pipeline(video_path, generate_sounds:bool):
     print(video_path)
 
     os.rename(video_path, video_path.replace(" ", "_"))
@@ -131,7 +131,7 @@ def video_pipeline(video_path):
         # "file_format": "mp4",
         # "keep_audio": True,
         # "original_volume" : 80,
-        "generate_sounds": True
+        "generate_sounds": generate_sounds,
     }
 
     input_json = {"video_input": input_json}
