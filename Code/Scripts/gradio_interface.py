@@ -54,7 +54,7 @@ image_interface = gr.Interface(
     inputs=[
         gr.Image(label="Image Input", type="filepath"),  # Input component
         gr.Checkbox(label="Generate sounds"),
-        gr.Number(label="Duration", minimum=1, maximum=10, value=5),
+        gr.Number(label="Duration", minimum=1, maximum=300, value=5),
         gr.Slider(
             label="Music Volume", minimum=0.1, maximum=1.0, value=0.5, visible=True
         ),

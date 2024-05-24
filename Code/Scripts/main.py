@@ -8,6 +8,7 @@ from frame_extractor import frame_extraction
 from best_frame_selection import get_best_frame
 from yolo9 import get_yolo_labels
 from audioldm2 import audio_generate
+import json
 
 # 1. Get the video
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -117,7 +118,7 @@ def image_pipeline(
         final["video_reconstruction"]["output_path"],
         final["audio_generation"]["path"],
         final["prompt_combiner"]["prompt"],
-        final,
+        json.dumps(final, indent=4),
     ]
 
 
@@ -172,7 +173,7 @@ def video_pipeline(video_path, generate_sounds: bool, music_volume=0.5, sound_vo
         final["video_reconstruction"]["output_path"],
         final["audio_generation"]["path"],
         final["prompt_combiner"]["prompt"],
-        final,
+        json.dumps(final, indent=4),
         # Knowing that "final" is a json, pretty print it
     ]
 
