@@ -6,7 +6,7 @@ from prompt_combiner import recombine_prompt
 from moondream2 import frame_description
 from frame_extractor import frame_extraction
 from best_frame_selection import get_best_frame
-from yolo8 import get_yolo_labels
+from yolo9 import get_yolo_labels
 from audioldm2 import audio_generate
 
 # 1. Get the video
@@ -161,6 +161,8 @@ def video_pipeline(video_path, generate_sounds:bool):
         final["audio_generation"]["path"],
         final["prompt_combiner"]["prompt"],
         final,
+        # Knowing that "final" is a json, pretty print it
+
     ]
 
 
