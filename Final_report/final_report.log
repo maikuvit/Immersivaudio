@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.3.23)  22 MAY 2024 18:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.3.23)  23 MAY 2024 20:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -391,25 +391,29 @@ Package hyperref Info: Link coloring OFF on input line 14.
 <final_architecture.png, id=68, 852.18375pt x 703.62875pt>
 File: final_architecture.png Graphic file (type png)
 <use final_architecture.png>
-Package pdftex.def Info: final_architecture.png  used on input line 39.
+Package pdftex.def Info: final_architecture.png  used on input line 40.
 (pdftex.def)             Requested size: 258.0pt x 213.02281pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 55.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <frame_extr.png, id=72, 422.0568pt x 316.5426pt>
 File: frame_extr.png Graphic file (type png)
 <use frame_extr.png>
-Package pdftex.def Info: frame_extr.png  used on input line 58.
+Package pdftex.def Info: frame_extr.png  used on input line 59.
 (pdftex.def)             Requested size: 258.0pt x 193.51091pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
- <./final_architecture.png> <./frame_extr.png>]
+ <./final_architecture.png> <./frame_extr.png>] [2]
+Underfull \hbox (badness 6173) in paragraph at lines 116--117
+[]\OT1/ptm/m/n/10 DA AG-GIUN-GERE LE COSE DAI FH-WEUIFMH
+ []
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -421,27 +425,29 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[2] (./final_report.aux)
+[3
+
+] (./final_report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `final_report.out' has not changed.
-(rerunfilecheck)             Checksum: EF85171FD0925237A36C709DC2B1C8BE;2083.
+(rerunfilecheck)             Checksum: 2FCB999A847CBBB83A33191EAB39116F;2164.
  ) 
 Here is how much of TeX's memory you used:
- 11165 strings out of 476076
- 171702 string characters out of 5793775
- 1941187 words of memory out of 5000000
- 33116 multiletter control sequences out of 15000+600000
+ 11168 strings out of 476076
+ 171733 string characters out of 5793775
+ 1942187 words of memory out of 5000000
+ 33117 multiletter control sequences out of 15000+600000
  588039 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,8n,79p,724b,443s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,724b,441s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_report.pdf (2 pages, 142744 bytes).
+Output written on final_report.pdf (3 pages, 146141 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
+ 163 PDF objects out of 1000 (max. 8388607)
+ 138 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
  139 words of extra memory for PDF output out of 10000 (max. 10000000)
 

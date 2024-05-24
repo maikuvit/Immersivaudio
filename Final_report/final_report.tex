@@ -26,8 +26,9 @@
 }
 
 \maketitle
-
+ 
 \section{Introduction}
+Generative Artificial Intelligence has brought a completely new approach to the process of creating 
 
 \section{Problem description}
 
@@ -88,10 +89,15 @@ The prompt enhancer module is only composed of a single string interpolation tha
 The output of this module is the composed prompt, that will be fed in input at the audio generation module. 
 
 \subsection{Audio generation}
-
+The audio generation module feeds the input to the AudioLDM2 model \cite{audioldm2}, which is a state-of-the-art audio generation model that can produce audio from the provided prompt. The model can take as input negative prompts as well, that corresponds to behaviors and keywords we want to avoid. 
+This slightly improves the output overall, generating a more enjoyable audio that can better fit the video itself.\\
+However, AudioLDM2 has a complex structure that impacts the computational cost of the system. With the available systems, we could not run it on local machines. More details on this can be found in the \textbf{Deployment} section of this report.\\
+The output of this module is the output path containing the generated audio.
 
 \subsection{Reconstructor}
-
+The reconstructor module is the final module of the standard pipeline, that produces the output of the system.
+It combines the generated audio with the initial input video using FFMPEG \cite{ffmpeg} to produce the final enhanced version of the video. 
+The output is the path to the final video, that is served to the user via the Gradio interface.
 
 \section{Deployment}
 The deployment of the system is done using Python 3.10.12 on Google Colab \cite{Colab}. The first intention was to whole process run on a local machine, but it quickly became clear that this is not possible due to the high hardware requirements that audio generation models have.
@@ -101,9 +107,16 @@ The next idea was to serve the audio generation module over an API, loading it o
 
 \section{Implemented features}
 
-\section{Evaluation}
+
+\section{Evaluation and benchmarks}
+Evaluation of our task has no precise metrcis, since the output is highly subjective that depends on how a music fits on a video or not in a personal opinion.
+In our opinion, the resulting audios in our test videos were fitting enough to be considered as a good result.\\
+However, we conducted a few tests to assess the time performance of the system. The same video of about two minutes was cut into smaller sections. The required time for the complete process has been recorded, and results are shown in Figure 
+
+DA AGGIUNGERE LE COSE DAI FHWEUIFMH IOWEHF UIQJEIHFBOIW BFUIWEQ
 
 \section{Conclusions and future work}
+
 
 
 \begin{thebibliography}{00}
@@ -129,6 +142,7 @@ The next idea was to serve the audio generation module over an API, loading it o
 
     \bibitem{hfaceItt} \href{https://huggingface.co/models?pipeline_tag=image-to-text&sort=trending}{HuggingFace image-to-text section.}
 
+    \bibitem{audioldm2} \href{https://audioldm.github.io/audioldm2/}{AudioLDM2 documentation and paper.}
 \end{thebibliography}
 
 \end{document}
