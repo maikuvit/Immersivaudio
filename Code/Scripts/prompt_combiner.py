@@ -5,9 +5,9 @@ def recombine_prompt(description_json, object_json):
     description_json.update(
         {
             "prompt_combiner": {
-                "prompt": "Melodic and clear and high-quality music based on "
+                "prompt": "Melodic, clear and high-quality music based on "
                 + description_json["frame_description"]["description"]
-                # + ",".join(description_json["object_detection"]["total_keywords"])
+                + "Mood of " + ",".join(description_json["object_detection"]["total_keywords"])
 
             }
         }

@@ -8,6 +8,7 @@ from frame_extractor import frame_extraction
 from best_frame_selection import get_best_frame
 from yolo9 import get_yolo_labels
 from audioldm2 import audio_generate
+import json
 
 # 1. Get the video
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -34,14 +35,20 @@ def filehash(file):
     return md5.hexdigest()
 
 
-def main(video_path, generate_sounds:bool, seconds=10):
+def main(
+    video_path, generate_sounds: bool, seconds=10, music_volume=0.5, sound_volume=0.0
+):
     if video_path.split(".")[-1] in image_formats:
-        return image_pipeline(video_path, generate_sounds, seconds)
+        return image_pipeline(
+            video_path, generate_sounds, seconds, music_volume, sound_volume
+        )
     else:
-        return video_pipeline(video_path, generate_sounds)
+        return video_pipeline(video_path, generate_sounds, music_volume, sound_volume)
 
 
-def image_pipeline(image_path, generate_sounds:bool, seconds=5):
+def image_pipeline(
+    image_path, generate_sounds: bool, seconds=5, music_volume=0.5, sound_volume=0.0
+):
     os.rename(image_path, image_path.replace(" ", "_"))
     image_path = image_path.replace(" ", "_")
     token = filehash(image_path)
@@ -55,7 +62,11 @@ def image_pipeline(image_path, generate_sounds:bool, seconds=5):
         "file_format": image_path.split(".")[-1],
     }
 
-    options = {"generate_sounds": generate_sounds}
+    options = {
+        "generate_sounds": generate_sounds,
+        "music_volume": music_volume,
+        "sound_volume": sound_volume,
+    }
 
     input_json = {"video_input": input_json}
     input_json.update({"options": options})
@@ -88,7 +99,7 @@ def image_pipeline(image_path, generate_sounds:bool, seconds=5):
         "best_frame": os.path.join(input_json["video_input"]["output_path"], "1.jpg"),
         "best_frame_idx": 0,
     }
-    
+
     input_json.update({"frame_selection": frame_selection})
 
     # 6. Description
@@ -107,11 +118,11 @@ def image_pipeline(image_path, generate_sounds:bool, seconds=5):
         final["video_reconstruction"]["output_path"],
         final["audio_generation"]["path"],
         final["prompt_combiner"]["prompt"],
-        final,
+        json.dumps(final, indent=4),
     ]
 
 
-def video_pipeline(video_path, generate_sounds:bool):
+def video_pipeline(video_path, generate_sounds: bool, music_volume=0.5, sound_volume=0.0):
     print(video_path)
 
     os.rename(video_path, video_path.replace(" ", "_"))
@@ -132,6 +143,8 @@ def video_pipeline(video_path, generate_sounds:bool):
         # "keep_audio": True,
         # "original_volume" : 80,
         "generate_sounds": generate_sounds,
+        "music_volume": music_volume,
+        "sound_volume": sound_volume,
     }
 
     input_json = {"video_input": input_json}
@@ -160,9 +173,8 @@ def video_pipeline(video_path, generate_sounds:bool):
         final["video_reconstruction"]["output_path"],
         final["audio_generation"]["path"],
         final["prompt_combiner"]["prompt"],
-        final,
+        json.dumps(final, indent=4),
         # Knowing that "final" is a json, pretty print it
-
     ]
 
 
