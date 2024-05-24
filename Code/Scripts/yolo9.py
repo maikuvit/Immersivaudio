@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import sys
 
-model = YOLO("yolov9m.pt", verbose = False)  # load an official model
+model = YOLO("yolov9e.pt", verbose = False)  # load an official model
 
 def get_yolo_labels(input_json):
 
