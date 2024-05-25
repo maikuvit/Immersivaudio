@@ -30,6 +30,7 @@ video_interface = gr.Interface(
     inputs=[
         gr.Video(label="Video Path Input"),  # Input component
         gr.Checkbox(label="Generate sounds"),
+        gr.Number(label="Duration", minimum=1, maximum=300, value=10, visible=False),
         gr.Slider(
             label="Music Volume", minimum=0.1, maximum=1.0, value=0.5, visible=True
         ),
@@ -82,7 +83,7 @@ with video_interface as i:
     i.input_components[1].change(
         fn=toggle_slider,
         inputs=[i.input_components[1]],
-        outputs=[i.input_components[3]],
+        outputs=[i.input_components[4]],
     )
 
 

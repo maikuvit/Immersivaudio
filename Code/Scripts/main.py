@@ -46,7 +46,7 @@ def main(
 
 
 def image_pipeline(
-    image_path, generate_sounds: bool, seconds=5, music_volume=0.5, sound_volume=0.0
+    image_path, generate_sounds: bool, seconds=5, music_volume=0.5, sound_volume=0.5
 ):
     os.rename(image_path, image_path.replace(" ", "_"))
     image_path = image_path.replace(" ", "_")
@@ -121,7 +121,7 @@ def image_pipeline(
     ]
 
 
-def video_pipeline(video_path, generate_sounds: bool, music_volume=0.5, sound_volume=0.0):
+def video_pipeline(video_path, generate_sounds: bool, music_volume=0.5, sound_volume=0.5):
     print(video_path)
 
     os.rename(video_path, video_path.replace(" ", "_"))
