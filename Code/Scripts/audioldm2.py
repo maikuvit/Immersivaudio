@@ -54,7 +54,7 @@ def audio_generate(input_json):
             negative_prompt=negative_prompt,
             num_waveforms_per_prompt=4,
             audio_length_in_s=int(input_json["video_input"]["video_duration"]),
-            num_inference_steps=50,
+            num_inference_steps=150,
             guidance_scale=3.5,
         )
 
