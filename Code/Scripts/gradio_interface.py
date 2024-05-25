@@ -2,7 +2,7 @@
 
 import gradio as gr
 
-# from main import main
+from main import main
 
 # Interface title and description
 interface_title = "Immersivaudio AI Video and Image Enhancer"
@@ -23,8 +23,8 @@ def dummy_function(video_path):
 
 # Define the interface components and structure them.
 video_interface = gr.Interface(
-    # fn=main,
-    fn=dummy_function,
+    fn=main,
+    # fn=dummy_function,
     title=interface_title,
     description=interface_description,
     inputs=[
@@ -47,8 +47,8 @@ video_interface = gr.Interface(
 )
 
 image_interface = gr.Interface(
-    # fn=main,
-    fn=dummy_function,
+    fn=main,
+    # fn=dummy_function,
     title=interface_title,
     description=interface_description,
     inputs=[
