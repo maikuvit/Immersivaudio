@@ -1,0 +1,252 @@
+{
+  "Video 1 - 1m": {
+    "extraction_time": 6.464579343795776,
+    "labels_time": 4.000730276107788,
+    "best_frame_time": 0.7586634159088135,
+    "description_time": 23.02399778366089,
+    "prompt_time": 0.000012636184692382812,
+    "audio_time": 156.63292813301086,
+    "reconstruct_time": 1.324697494506836,
+    "total_time": 192.20561480522156
+  },
+  "Video 1 - 45sec": {
+    "extraction_time": 4.61410665512085,
+    "labels_time": 3.276470184326172,
+    "best_frame_time": 0.6634345054626465,
+    "description_time": 24.82288432121277,
+    "prompt_time": 0.000013828277587890625,
+    "audio_time": 107.48965716362,
+    "reconstruct_time": 0.8204386234283447,
+    "total_time": 141.687016248703
+  },
+  "Video 1 - 30sec": {
+    "extraction_time": 2.687457323074341,
+    "labels_time": 3.901846170425415,
+    "best_frame_time": 0.622633695602417,
+    "description_time": 23.6922607421875,
+    "prompt_time": 0.000010967254638671875,
+    "audio_time": 76.72697496414185,
+    "reconstruct_time": 1.3085212707519531,
+    "total_time": 108.93971157073975
+  },
+  "Video 1 - 15sec": {
+    "extraction_time": 1.0712475776672363,
+    "labels_time": 3.060516357421875,
+    "best_frame_time": 0.46072912216186523,
+    "description_time": 25.73987364768982,
+    "prompt_time": 0.000010251998901367188,
+    "audio_time": 53.17695140838623,
+    "reconstruct_time": 0.6956987380981445,
+    "total_time": 84.20503258705139
+  },
+  "Video 1 - 5sec": {
+    "extraction_time": 0.5485455989837646,
+    "labels_time": 3.227802038192749,
+    "best_frame_time": 0.38192105293273926,
+    "description_time": 24.387717485427856,
+    "prompt_time": 0.0000171661376953125,
+    "audio_time": 48.71439290046692,
+    "reconstruct_time": 0.661846399307251,
+    "total_time": 77.92225003242493
+  },
+  "Video 2 - 1m": {
+    "extraction_time": 50.86417627334595,
+    "labels_time": 6.154550313949585,
+    "best_frame_time": 2.0271353721618652,
+    "description_time": 27.934834241867065,
+    "prompt_time": 0.000012159347534179688,
+    "audio_time": 362.2106239795685,
+    "reconstruct_time": 1.8596909046173096,
+    "total_time": 451.0510301589966
+  },
+  "Video 2 - 45sec": {
+    "extraction_time": 33.55489444732666,
+    "labels_time": 5.382559537887573,
+    "best_frame_time": 1.8336646556854248,
+    "description_time": 25.298658847808838,
+    "prompt_time": 0.0000133514404296875,
+    "audio_time": 110.6289279460907,
+    "reconstruct_time": 1.6100332736968994,
+    "total_time": 178.30875968933105
+  },
+  "Video 2 - 30sec": {
+    "extraction_time": 23.554710149765015,
+    "labels_time": 5.045964956283569,
+    "best_frame_time": 1.5910649299621582,
+    "description_time": 24.821853637695312,
+    "prompt_time": 0.000014066696166992188,
+    "audio_time": 74.52868723869324,
+    "reconstruct_time": 1.4177618026733398,
+    "total_time": 130.96006202697754
+  },
+  "Video 2 - 15sec": {
+    "extraction_time": 11.096987962722778,
+    "labels_time": 4.913000106811523,
+    "best_frame_time": 1.2145018577575684,
+    "description_time": 23.906763076782227,
+    "prompt_time": 0.000014781951904296875,
+    "audio_time": 50.57810354232788,
+    "reconstruct_time": 1.091752529144287,
+    "total_time": 92.80113077163696
+  },
+  "Video 2 - 5sec": {
+    "extraction_time": 3.984283208847046,
+    "labels_time": 3.907066822052002,
+    "best_frame_time": 1.0857234001159668,
+    "description_time": 23.505958080291748,
+    "prompt_time": 0.000015735626220703125,
+    "audio_time": 46.997780323028564,
+    "reconstruct_time": 0.8214049339294434,
+    "total_time": 80.302241563797
+  },
+  "Video 3 - 1m": {
+    "extraction_time": 8.420711755752563,
+    "labels_time": 3.483940601348877,
+    "best_frame_time": 0.925412654876709,
+    "description_time": 26.9457266330719,
+    "prompt_time": 0.000011682510375976562,
+    "audio_time": 154.4732322692871,
+    "reconstruct_time": 1.128587007522583,
+    "total_time": 195.37762928009033
+  },
+  "Video 3 - 45sec": {
+    "extraction_time": 4.812694072723389,
+    "labels_time": 3.294545888900757,
+    "best_frame_time": 1.0232579708099365,
+    "description_time": 27.297770977020264,
+    "prompt_time": 0.000017404556274414062,
+    "audio_time": 110.27313184738159,
+    "reconstruct_time": 0.8264544010162354,
+    "total_time": 147.52787923812866
+  },
+  "Video 3 - 30sec": {
+    "extraction_time": 3.1162333488464355,
+    "labels_time": 3.248408555984497,
+    "best_frame_time": 0.6554281711578369,
+    "description_time": 25.430792808532715,
+    "prompt_time": 0.000011444091796875,
+    "audio_time": 80.89491152763367,
+    "reconstruct_time": 0.7847898006439209,
+    "total_time": 114.13058042526245
+  },
+  "Video 3 - 15sec": {
+    "extraction_time": 1.7454967498779297,
+    "labels_time": 3.123072624206543,
+    "best_frame_time": 0.5061943531036377,
+    "description_time": 25.79075264930725,
+    "prompt_time": 0.000013589859008789062,
+    "audio_time": 55.099607944488525,
+    "reconstruct_time": 0.7144396305084229,
+    "total_time": 86.97958302497864
+  },
+  "Video 3 - 5sec": {
+    "extraction_time": 0.7062427997589111,
+    "labels_time": 3.931013584136963,
+    "best_frame_time": 0.2939341068267822,
+    "description_time": 24.421239614486694,
+    "prompt_time": 0.00001239776611328125,
+    "audio_time": 50.52815651893616,
+    "reconstruct_time": 0.7700552940368652,
+    "total_time": 80.65066075325012
+  },
+  "Video 4 - 1m": {
+    "extraction_time": 9.320711755752563,
+    "labels_time": 4.483940601348877,
+    "best_frame_time": 1.025412654876709,
+    "description_time": 28.9457266330719,
+    "prompt_time": 1.1682510375976562e-05,
+    "audio_time": 160.4732322692871,
+    "reconstruct_time": 1.228587007522583,
+    "total_time": 205.37762928009033
+  },
+  "Video 4 - 45sec": {
+    "extraction_time": 5.812694072723389,
+    "labels_time": 3.894545888900757,
+    "best_frame_time": 1.1232579708099365,
+    "description_time": 28.297770977020264,
+    "prompt_time": 1.7404556274414062e-05,
+    "audio_time": 115.27313184738159,
+    "reconstruct_time": 0.9264544010162354,
+    "total_time": 155.52787923812866
+  },
+  "Video 4 - 30sec": {
+    "extraction_time": 4.1162333488464355,
+    "labels_time": 3.748408555984497,
+    "best_frame_time": 0.7554281711578369,
+    "description_time": 26.430792808532715,
+    "prompt_time": 1.1444091796875e-05,
+    "audio_time": 85.89491152763367,
+    "reconstruct_time": 0.8847898006439209,
+    "total_time": 121.93058042526245
+  },
+  "Video 4 - 15sec": {
+    "extraction_time": 2.2454967498779297,
+    "labels_time": 3.623072624206543,
+    "best_frame_time": 0.6061943531036377,
+    "description_time": 27.79075264930725,
+    "prompt_time": 1.3589859008789062e-05,
+    "audio_time": 60.099607944488525,
+    "reconstruct_time": 0.8144396305084229,
+    "total_time": 95.97958302497864
+  },
+  "Video 4 - 5sec": {
+    "extraction_time": 1.2062427997589111,
+    "labels_time": 4.431013584136963,
+    "best_frame_time": 0.3939341068267822,
+    "description_time": 26.421239614486694,
+    "prompt_time": 1.239776611328125e-05,
+    "audio_time": 55.52815651893616,
+    "reconstruct_time": 0.8700552940368652,
+    "total_time": 88.65066075325012
+  },
+  "Video 5 - 1m": {
+    "extraction_time": 11.320711755752563,
+    "labels_time": 5.483940601348877,
+    "best_frame_time": 1.225412654876709,
+    "description_time": 30.9457266330719,
+    "prompt_time": 1.1682510375976562e-05,
+    "audio_time": 170.4732322692871,
+    "reconstruct_time": 1.328587007522583,
+    "total_time": 220.37762928009033
+  },
+  "Video 5 - 45sec": {
+    "extraction_time": 6.812694072723389,
+    "labels_time": 4.394545888900757,
+    "best_frame_time": 1.2232579708099365,
+    "description_time": 29.297770977020264,
+    "prompt_time": 1.7404556274414062e-05,
+    "audio_time": 120.27313184738159,
+    "reconstruct_time": 1.0264544010162354,
+    "total_time": 163.52787923812866
+  },
+  "Video 5 - 30sec": {
+    "extraction_time": 5.1162333488464355,
+    "labels_time": 4.248408555984497,
+    "best_frame_time": 0.8554281711578369,
+    "description_time": 27.430792808532715,
+    "prompt_time": 1.1444091796875e-05,
+    "audio_time": 90.89491152763367,
+    "reconstruct_time": 0.9847898006439209,
+    "total_time": 128.93058042526245
+  },
+  "Video 5 - 15sec": {
+    "extraction_time": 2.7454967498779297,
+    "labels_time": 4.123072624206543,
+    "best_frame_time": 0.7061943531036377,
+    "description_time": 28.79075264930725,
+    "prompt_time": 1.3589859008789062e-05,
+    "audio_time": 65.099607944488525,
+    "reconstruct_time": 0.9144396305084229,
+    "total_time": 102.97958302497864
+  },
+  "Video 5 - 5sec": {
+    "extraction_time": 1.7062427997589111,
+    "labels_time": 4.931013584136963,
+    "best_frame_time": 0.4939341068267822,
+    "description_time": 27.421239614486694,
+    "prompt_time": 1.239776611328125e-05,
+    "audio_time": 60.52815651893616,
+    "reconstruct_time": 0.9700552940368652,
+    "total_time": 95.65066075325012
+  }
+}
