@@ -106,8 +106,15 @@ def frame_extraction(input_json, verbose=False):
     return input_json
 
 if "__main__" == __name__:
-    frame_extraction(" ".join(sys.argv[1:]))
+    input_json = {
+        "video_input": {
+            "video_path": "../videos/testing.mp4",
+            "output_path": "testing",
+            "factor": "10"
+        }
+    }
+    frame_extraction(input_json, True)
 
 '''
-{"video_path" : "../videos/cat.mp4", "output_path" : "cat3", "factor" : "10"}
+{"video_path" : "../videos/testing.mp4", "output_path" : "testing", "factor" : "10"}
 '''
