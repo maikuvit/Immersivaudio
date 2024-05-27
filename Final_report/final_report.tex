@@ -9,11 +9,12 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 
+
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Immersivaudio: audio generation based on video features.}
+\title{\includegraphics[scale=0.4]{IST.png} \\ \vspace{30px} \includegraphics[scale=0.06]{../Immersivaudio logo.png} \\Immersivaudio: audio generation based on video features.}
 
 \author{\IEEEauthorblockN{Michele Vitale}
 \IEEEauthorblockA{\textit{ist1111558}}
@@ -28,11 +29,17 @@
 \maketitle
  
 \section{Introduction}
-Generative Artificial Intelligence has brought a completely new approach to the process of creating 
+Generative Artificial Intelligence has brought a completely new approach to the process of creating digital contents: since the public release of services such as ChatGPT \cite{chatgptintro} or DALL-E \cite{dall-e}, the field has been growing exponentially, with new models and applications that can produce text, images, audio and even videos with growing quality levels.
+\\In this project we deepen some of the tasks and possibilities that these models can offer, with the aim of using state-of-art models that are freely available to the public to solve a multimedia task.
 
 \section{Problem description}
+The problem we are trying to solve is the enhancement of a video by adding an audio track that can better fit the content of the video itself. The audio track can be both music or music and sound effects, based on the user preferences. \\
+The problem can fit in various scenarios and contexts, such the creation of audio for a video that has to be published on social medias and requires copyright-free music (it might be the case of online platforms such as YouTube, where the copyright policies are very strict \cite{ytcopyright}), visually impaired people that can get a more immersive experience from a video combining our solution with already existing audio description services, or simply to enhance audio tracks of videos that have noisy or low-quality audio or that have no audio at all, such as drones footage or submarine recordings. \\
+Thus, the range of use cases of the system is wide and flexibility is a key requirement. 
 
 \section{Proposed solution}
+The proposed solution is a pipeline that takes in input a video and returns the input video combined with the enhanced audio track. It is composed of a number of modules that decompose the problem into clear and manageable tasks, with the idea of making the system modular, scalable, easily adaptable to different scenarios and deployable on various workload distribution models, such as computer or container clusters. \\
+The main idea is to use the features of the video to generate a prompt that can be used to condition the audio generation module, so that the generated audio can better fit the video. The features of the video extracted during the process are based on the content of a number of frames extracted by the input. Each step of the process has been discussed in the following sections, in particular in the \textbf{Architecture} section of this report.
 
 \section{Architecture}
 
@@ -106,20 +113,35 @@ The next idea was to serve the audio generation module over an API, loading it o
 \\The informations about the used libraries and technologies can be found in the \textbf{Architecture} section of this report.
 
 \section{Implemented features}
+At the moment the project is capable of generating music tracks or music and audio tracks with a defined balance between these two audios. It can also produce music or audio and music from an image, with the resulting video lasting for the specified duration. 
 
 
 \section{Evaluation and benchmarks}
 Evaluation of our task has no precise metrcis, since the output is highly subjective that depends on how a music fits on a video or not in a personal opinion.
 In our opinion, the resulting audios in our test videos were fitting enough to be considered as a good result.\\
-However, we conducted a few tests to assess the time performance of the system. The same video of about two minutes was cut into smaller sections. The required time for the complete process has been recorded, and results are shown in Figure 
+However, we conducted a few tests to assess the time performance of the system. Videos of different time durations have been processed by the system under the same hardware conditions. The required time for the complete process has been recorded, and results are shown in Figure \ref*{time_performance}.
 
-DA AGGIUNGERE LE COSE DAI FHWEUIFMH IOWEHF UIQJEIHFBOIW BFUIWEQ
+\begin{figure}
+    \centerline{\includegraphics[width=0.5\textwidth]{../Presentation/graphs/total_time.png}}
+    \caption{Total time performance of the system.}
+    \label{time_performance}
+\end{figure}
 
 \section{Conclusions and future work}
 
 
 
 \begin{thebibliography}{00}
+
+
+    \bibitem{chatgptintro}
+        \href{https://openai.com/index/chatgpt/}{OpenAI ChatGPT introduction.}
+
+    \bibitem{dall-e}
+        \href{https://openai.com/index/dall-e/}{OpenAI DALL-E introduction.}
+
+    \bibitem{ytcopyright}
+        \href{https://support.google.com/youtube/answer/6364458?hl=en}{YouTube copyright policies.}
 
     \bibitem{yolo}
         \href{https://docs.ultralytics.com/models/yolov9/}{Yolov9 documentation} and 
