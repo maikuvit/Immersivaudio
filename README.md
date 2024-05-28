@@ -2,7 +2,7 @@
 
 AI Music generation from video and photos content.
 
-![Immersivaudio](Immersivaudio%20logo.png)
+![Immersivaudio](Immersivaudio_logo.png)
 
 ## Project Overview
 
@@ -21,18 +21,15 @@ The Scripts folder contains the main scripts for the project, including the foll
 - `prompt_combiner.py`: This script combines the output of the frame description and object detection scripts to generate a prompt for the music generation script
 - `video_reconstructor.py`: This script join together the video and the generated music
 - `main.py`: This script runs the entire video processing and music generation pipeline 
-- 
+
 ### Notebooks
 
-The Code folder also contains several Jupyter notebooks (.ipynb files) that demonstrate the usage of the scripts and the overall video processing workflow. 
+The Code folder also contains several Jupyter notebooks (.ipynb files) that demonstrate the usage of the scripts and the overall video processing workflow. They have been dropped in the last commit, but they are still visible in the previous versions of the repository. 
 
-
-### Dependencies
-Inside the requirements.txt file you can find all the dependencies needed to run the project.
 
 ### Usage
 
-`Google Colab`: If you don't have a GPU, you can use Google Colab to run the scripts. Just use the `Immersiveaudio_Colab.ipynb` notebook to run the project in the cloud.
+`Google Colab`: If you don't have a GPU, you can use Google Colab to run the scripts. Just use the `Immersiveaudio_Colab.ipynb` notebook to run the project in the cloud. More detailed instructions are provided in the report.
 
-`Local Machine`: If you have a GPU, you can run the scripts on your local machine. Just make sure you have all the dependencies installed and run the `gradio_interface.py` script to start the Gradio interface.
+`Local Machine`: If you have a high performing GPU with CUDA, you can run the scripts on your local machine. Just make sure you have all the dependencies installed and run the `gradio_interface.py` script to start the Gradio interface.
 
