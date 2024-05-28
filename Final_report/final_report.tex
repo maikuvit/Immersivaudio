@@ -34,7 +34,7 @@ Generative Artificial Intelligence has brought a completely new approach to the 
 \\In this project we deepen some of the tasks and possibilities that these models can offer, with the aim of using state-of-art models that are freely available to the public to solve a multimedia task.
 
 \section{Problem description}
-The problem we are trying to solve is the enhancement of a video by adding an audio track that can better fit the content of the video itself. The audio track can be both music or music and sound effects, based on the user preferences. \\
+The problem that needs to be solved is the enhancement of a video by adding an audio track that can better fit the content of the video itself. The audio track can be both music or music and sound effects, based on the user preferences. \\
 The problem can fit in various scenarios and contexts, such the creation of audio for a video that has to be published on social medias and requires copyright-free music (it might be the case of online platforms such as YouTube, where the copyright policies are very strict \cite{ytcopyright}), visually impaired people that can get a more immersive experience from a video combining our solution with already existing audio description services, or simply to enhance audio tracks of videos that have noisy or low-quality audio or that have no audio at all, such as drones footage or submarine recordings. \\
 Thus, the range of use cases of the system is wide and flexibility is a key requirement. 
 
@@ -77,13 +77,14 @@ The output of this module consists in a path to the folder containing the extrac
 \subsection{Object detection}
 The object detection module detects objects in the frames extracted by the previous module. In case of image input, this module performs the object recognition only on the single image. 
 The module uses the YOLOv9 \cite{yolo} model, which is a state-of-the-art and widely used object detection model that can run in short time and provide good results.
+Since there is no particular context the project is oriented towards, no fine tuning of YOLOv9 was done. Thus, the model is used with the default weights and configuration. \\
 The output of this module consists of a list of objects detected in each frame, as well as a set of all objects detected in the batch.
 
 \subsection{Best frame selection}
 This module is designed to select the best frame from the ones extracted by the first module. The main reason behind this choice is the computational intensity coming from the frame description module,
 that takes $\sim 5-7$ seconds to process a single frame. Thus, passing all the frames would generate a sensitive delay in the process of each video. \\ 
 The criterion used to select the best frame has been object of many tests, due to the fact that it is a difficult to generalize task that is highly dependent on the input video. 
-Our final proposed solution picks the best frame using a KMedoid algorithm over a latent representation of the images. The latent representation is obtained by passing the image through ResNet18 \cite{resnet}, which is a widely used and efficient image classification model. Since the task is not classification, the ResNet module is used to only get the latent representation of the input, of size $512 \times 16 \times 29 $. The said representation is then reshaped and used to cluster the video and calculate the medoid. In particular, the KMedoid algorithm is used with $k=1$ to get the medoid of the complete. \\
+The final proposed solution picks the best frame using a KMedoid algorithm over a latent representation of the images. The latent representation is obtained by passing the image through ResNet18 \cite{resnet}, which is a widely used and efficient image classification model. Since the task is not classification, the ResNet module is used to only get the latent representation of the input, of size $512 \times 16 \times 29 $. The said representation is then reshaped and used to cluster the video and calculate the medoid. In particular, the KMedoid algorithm is used with $k=1$ to get the medoid of the complete. \\
 The output of this module is the path and index of the selected frame.  
 
 \subsection{Frame description}
@@ -94,13 +95,13 @@ The choice switched to an image-text to text model since it provides a wider inf
 The output of this module is the description of the input image.
 
 \subsection{Prompt enhancer}
-The prompt enhancer module is only composed of a single string interpolation that combines the outputs of both the frame description and the object detection modules. An initial option was to combine them using a lightweight Large Language Model, but we decided not to include another model to avoid the increase in computational cost.
+The prompt enhancer module is only composed of a single string interpolation that combines the outputs of both the frame description and the object detection modules. An initial option was to combine them using a lightweight Large Language Model, but the usage of AudioLDM2 that can be prompt-oriented with the usage of an input text and tests conduced lead to the decision of not using another model, that would mostly only extend the computational duration without adding any value to the promt.\\
 The output of this module is the composed prompt, that will be fed in input to the audio generation module. 
 
 \subsection{Audio generation}
-The audio generation module feeds the input to the AudioLDM2 model \cite{audioldm2}, which is a state-of-the-art audio generation model that can produce audio from the provided prompt. The model can take as input negative prompts as well, that corresponds to behaviors and keywords we want to avoid. 
+The audio generation module feeds the input to the AudioLDM2 model \cite{audioldm2}, which is a state-of-the-art audio generation model that can produce audio from the provided prompt. The model can take as input negative prompts as well, that corresponds to behaviors and keywords that it is better to avoid. 
 This slightly improves the output overall, generating a more enjoyable audio that can better fit the video itself.\\
-However, AudioLDM2 has a complex structure that impacts the computational cost of the system. With the available systems, we could not run it on local machines. More details on this can be found in the \textbf{Deployment} section of this report.\\
+However, AudioLDM2 has a complex structure that impacts the computational cost of the system. With the available systems, it could not run it on local machines. More details on this can be found in the \textbf{Deployment} section of this report.\\
 The output of this module is the output path containing the generated audio.
 
 \subsection{Reconstructor}
@@ -119,11 +120,11 @@ At the moment the project is capable of generating music tracks or music and aud
 The high modularity of the system allows for easy creation of new pipelines that can be used to adapt the system to different scenarios and requirements. Moreover, each 
 module is independent and can be used separately from the others, allowing for a high level of flexibility in the system.  
 The entire system is customizable and can be easily adapted to different use-cases based on the user requirements, such as the choice of a different model, a different algorithm or a different part of the pipeline.
+
 \section{Evaluation and benchmarks}
-Evaluation of our task has no precise metrcis, since the output is highly subjective that depends on how a music fits on a video or not in a personal opinion.\\ We could have done some 
-checks on the effective quality of the objects detection given by the YOLOv9 model or the description of the image given by the MoonDream2 model, but we decided not to do it since it's not the main goal of the project. A survey could have been done to evaluate the quality of the system, but the time constraints of the project did not allow us to do it.\\
+Evaluation of our task has no precise metrcis, since the output is highly subjective that depends on how a music fits on a video or not in a personal opinion.\\ A survey could have been done to evaluate the quality of the system, but the time constraints of the project did not allow us to do it.\\
 In our opinion, the resulting audios in our test videos were fitting enough to be considered as a good result.\\
-Speaking of benchmarks, we conducted a few tests to assess the time performance of the system. Videos of different time durations have been processed by the system under the same hardware conditions. The required time for the complete process has been recorded, and results are shown in Figure \ref*{time_performance}.
+To evaluate the computational cost, a few tests to assess the time performance of the system have been conduced. Videos of different time durations have been processed by the system under the same hardware conditions. The required time for the complete process has been recorded, and results are shown in Figure \ref*{time_performance}.
 
 \begin{figure}[H]
     \centerline{\includegraphics[width=0.5\textwidth]{../Presentation/graphs/total_time.png}}
@@ -133,24 +134,18 @@ Speaking of benchmarks, we conducted a few tests to assess the time performance 
 
 \section{Limitations and challenges}
 The main limitation of the project was the computational cost of the audio generation model, both in terms of time and hardware requirements. 
-Moreover, having to use Google Colab as the main platform for the deployment of the system, we had to face the limitations of the platform itself, that is not very suitable for running \textit{gradio} interfaces and long-running processes. 
+Moreover, having to use Google Colab as the main platform for the deployment of the system, the limitations of the platform itself have been a point to deal with, that makes it not very suitable for running \textit{gradio} interfaces and long-running processes. 
 Speaking of the audio generation model itself, it is very dependent on the prompt given in input and so the challenge was to find the best prompt that could be used to condition the audio generation.
 This involved a lot of prompting and testing with \textit{moonDream2} model, that is continuously being updated and improved over time with updates on a weekly or monthly basis. This can be 
-both a \textit{good} and a \textit{bad} thing, since the model can improve over time but can also change its behavior and output, making the system less reliable. Of course, a solution to this problem could be to stick with a specific version of the model, but this would limit the system.\\
-This lead to another limitation of the project, that is the correct choice of the \textit{best frame} of the video. This 
-choice is relying on the KMedoid algorithm, that is not always able to select the best frame of the video. However, the problem is not easy and 
-doesn't have a naive solution, so we decided to keep this choice in the project, being a good compromise between time and quality of the output.
-
+both a value or a problem, since the model can improve over time but can also change its behavior and output, making the system less reliable. Of course, a solution to this problem could be to stick with a specific version of the model, but this would limit the system from receiving improvements from updates.\\
+Another limitation of the project is the correct choice of the best frame of the video, that at the moment is relying on the KMedoid algorithm. However, that algorithm is not always able to select the best frame of the video. 
+The problem is not easy and does not have a naive solution, so it has been decided to keep the KMedoid algorithm in the project, being a good compromise between complexity and quality of the output.
 
 \section{Conclusions and future work}
-
-The project was a real challenge that was not easy at all. The main goal was to create a system that could generate audio from a video, and we achieved this goal. The system is modular, scalable and easily adaptable to different scenarios, and it can be used over video or image inputs. 
-The main challenge was finding a good approach that could balance efficiency and effectiveness of the system, and we believe that we achieved this goal. Of course, the system is not perfect and can be improved in many ways, but the fact that we had such small amount of time to develop it, we are satisfied with the results.\\
+The main goal was to create a system that could generate audio from a video, and we achieved this goal. The system is modular, scalable and easily adaptable to different scenarios, and it can be used over video or image inputs. 
+The main challenge was finding a good approach that could balance efficiency and effectiveness of the system, and we believe that we could find a good balance. Of course, the system is not perfect and can be improved in many ways, but the fact that we had such small amount of time to develop it makes us satisfied with the results.\\
 Future improvements are mainly focused on the audio generation model, that is the most critical part of the system. The correct creation of the prompt is the key to make the system work properly, and since text is involved, a proper text generation model trained 
-on the specific task could be used to improve the quality of the output. Moreover, the system could be improved by using different models for both music and sound effects, to have a wider range of outputs. The main
-reason we didn't use different models is the computational cost of the model loading and memory usage, that would have been too high for the available resources.\\  
-
-
+on the specific task could be used to improve the quality of the output. Moreover, the system could be improved by using different models for both music and sound effects, to have a wider range of outputs. The original idea, involving two different models specialized on audio or music generation, had to be discarded because of the limited amount of time and resources at our disposal.  
 
 \begin{thebibliography}{00}
 
