@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.3.23)  28 MAY 2024 11:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.3.23)  28 MAY 2024 12:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -395,12 +395,12 @@ Package hyperref Info: Link coloring OFF on input line 16.
 \@outlinefile=\write3
 \openout3 = `final_report.out'.
 
-<IST.png, id=72, 499.8675pt x 193.4427pt>
+<IST.png, id=80, 499.8675pt x 193.4427pt>
 File: IST.png Graphic file (type png)
 <use IST.png>
 Package pdftex.def Info: IST.png  used on input line 31.
 (pdftex.def)             Requested size: 199.94345pt x 77.3757pt.
-<../Immersivaudio logo.png, id=74, 2556.55125pt x 1003.75pt>
+<../Immersivaudio logo.png, id=82, 2556.55125pt x 1003.75pt>
 File: ../Immersivaudio logo.png Graphic file (type png)
 <use ../Immersivaudio logo.png>
 Package pdftex.def Info: ../Immersivaudio logo.png  used on input line 31.
@@ -421,56 +421,49 @@ File: ../Immersivaudio logo.png Graphic file (type png)
 <use ../Immersivaudio logo.png>
 Package pdftex.def Info: ../Immersivaudio logo.png  used on input line 31.
 (pdftex.def)             Requested size: 153.38646pt x 60.2224pt.
-<final_architecture.png, id=78, 852.18375pt x 703.62875pt>
-File: final_architecture.png Graphic file (type png)
-<use final_architecture.png>
-Package pdftex.def Info: final_architecture.png  used on input line 48.
-(pdftex.def)             Requested size: 258.0pt x 213.02281pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
  <./IST.png> <../Immersivaudio logo.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+<final_architecture.png, id=101, 852.18375pt x 703.62875pt>
+File: final_architecture.png Graphic file (type png)
+<use final_architecture.png>
+Package pdftex.def Info: final_architecture.png  used on input line 54.
+(pdftex.def)             Requested size: 258.0pt x 213.02281pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<frame_extr.png, id=95, 422.0568pt x 316.5426pt>
+<frame_extr.png, id=104, 422.0568pt x 316.5426pt>
 File: frame_extr.png Graphic file (type png)
 <use frame_extr.png>
-Package pdftex.def Info: frame_extr.png  used on input line 67.
+Package pdftex.def Info: frame_extr.png  used on input line 73.
 (pdftex.def)             Requested size: 258.0pt x 193.51091pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[2
+ [2
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.89 
+l.96 
      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.89 
-      <./final_architecture.png> <./frame_extr.png>]
-<../Presentation/graphs/total_time.png, id=120, 722.7pt x 433.62pt>
+l.96 
+      <./final_architecture.png> <./frame_extr.png>] [3]
+<../Presentation/graphs/total_time.png, id=140, 722.7pt x 433.62pt>
 File: ../Presentation/graphs/total_time.png Graphic file (type png)
 <use ../Presentation/graphs/total_time.png>
-Package pdftex.def Info: ../Presentation/graphs/total_time.png  used on input line 130.
+Package pdftex.def Info: ../Presentation/graphs/total_time.png  used on input line 140.
 (pdftex.def)             Requested size: 258.0pt x 154.79962pt.
 
-Underfull \vbox (badness 7522) has occurred while \output is active []
+Underfull \hbox (badness 2452) in paragraph at lines 172--173
+\OT1/ptm/m/n/8 [On-line]. Avail-able: []$https : / / www . sciencedirect . com / science / article / pii /
+ []
 
- [3]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -486,28 +479,28 @@ Before submitting the final camera ready copy, remember to:
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.186 \end{document}
+l.201 \end{document}
                      <../Presentation/graphs/total_time.png>] (./final_report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `final_report.out' has not changed.
-(rerunfilecheck)             Checksum: CDADFEE541BEBA26E807AFFDBF784C3F;2344.
+(rerunfilecheck)             Checksum: E477DCD870CB59AEFA07CFD0C1CE6DBF;2651.
  ) 
 Here is how much of TeX's memory you used:
- 11269 strings out of 476076
- 173516 string characters out of 5793775
+ 11298 strings out of 476076
+ 173844 string characters out of 5793775
  1943187 words of memory out of 5000000
- 33208 multiletter control sequences out of 15000+600000
- 588039 words of font info for 91 fonts, out of 8000000 for 9000
+ 33225 multiletter control sequences out of 15000+600000
+ 592275 words of font info for 104 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,8n,79p,724b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,724b,443s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_report.pdf (4 pages, 524137 bytes).
+Output written on final_report.pdf (4 pages, 529411 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 207 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
