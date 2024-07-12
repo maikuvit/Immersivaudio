@@ -2,14 +2,12 @@
 
 import gradio as gr
 
-# from main import main
+from main import main
 
 # Interface title and description
 interface_title = "Immersivaudio AI Video and Image Enhancer"
 interface_description = "This interface allows you to enhance your videos and images with AI-generated audio. You can upload a video or an image and the AI will generate audio based on the content of the input. Project made by Daniele Avolio, Michele Vitale, Teodor Chakarov for the Learning Based Multimedia Processing course at Instituto Superior Tecnico, Lisbon."
 
-def dummy():
-    return
 
 # Add a callback function to toggle the visibility of the slider
 def toggle_slider(checkbox_val):
@@ -25,7 +23,7 @@ def dummy_function(video_path):
 
 # Define the interface components and structure them.
 video_interface = gr.Interface(
-    fn= dummy,
+    fn= main,
     # fn=dummy_function,
     title=interface_title,
     description=interface_description,
