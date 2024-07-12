@@ -48,7 +48,7 @@ video_interface = gr.Interface(
 )
 
 image_interface = gr.Interface(
-    fn=main
+    fn=main,
     # fn=dummy_function,
     title=interface_title,
     description=interface_description,
